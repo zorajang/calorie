@@ -7,6 +7,9 @@ import { HistoryStats } from "@/components/history/history-stats";
 import { WeightHistoryChart } from "@/components/history/weight-history-chart";
 import { getHistorySeries, getWeightTrend, searchHistoryEntries } from "@/lib/repository";
 import { sampleHistorySearch, sampleHistorySeries, sampleWeightTrend } from "@/lib/sample-data";
+import type { HistorySearchItem } from "@/lib/types";
+
+export const dynamic = "force-dynamic";
 
 export default async function HistoryPage({
   searchParams
@@ -22,7 +25,7 @@ export default async function HistoryPage({
   const weightPoints = (await getWeightTrend(days === 30 ? 30 : 14)) || sampleWeightTrend;
   const safeWeightPoints = weightPoints.length > 0 ? weightPoints : sampleWeightTrend;
   const results = query ? await searchHistoryEntries(query, 20) : [];
-  const safeResults = query && results.length === 0 ? sampleHistorySearch.filter((item) => item.foodName.includes(query)) : results;
+  const safeResults: HistorySearchItem[] = query && results.length === 0 ? sampleHistorySearch.filter((item) => item.foodName.includes(query)) : results;
 
   return (
     <PageShell

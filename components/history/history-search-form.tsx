@@ -1,5 +1,6 @@
 "use client";
 
+import type { Route } from "next";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -17,7 +18,8 @@ export function HistorySearchForm({ initialRange = 7 }: { initialRange?: number 
       params.delete("q");
     }
     params.set("range", range);
-    router.push(`/history${params.toString() ? `?${params.toString()}` : ""}`);
+    const href = `/history${params.toString() ? `?${params.toString()}` : ""}` as Route;
+    router.push(href);
   }
 
   return (

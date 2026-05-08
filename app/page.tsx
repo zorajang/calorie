@@ -5,6 +5,8 @@ import { getTodayDate } from "@/lib/date";
 import { getDailySummary, getFrequentFoods, getWeightTrend } from "@/lib/repository";
 import { sampleFrequentFoods, sampleSummary, sampleWeightTrend } from "@/lib/sample-data";
 
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const summary = (await getDailySummary(getTodayDate())) ?? sampleSummary;
   const frequentFoods = (await getFrequentFoods(4)) || sampleFrequentFoods;

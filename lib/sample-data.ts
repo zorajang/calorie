@@ -1,10 +1,18 @@
 import { calculateDailyMetrics } from "@/lib/calorie";
+import type {
+  DailySummaryRecord,
+  FrequentFoodItem,
+  HistoryPoint,
+  HistorySearchItem,
+  WeightLogRecord,
+  WeightTrendPoint
+} from "@/lib/types";
 
 const consumedKcal = 1060;
 const tdeeKcal = 2310;
 const targetIntakeKcal = 1810;
 
-export const sampleSummary = {
+export const sampleSummary: DailySummaryRecord = {
   date: "2026-05-08",
   bmrKcal: 1490,
   tdeeKcal,
@@ -13,6 +21,7 @@ export const sampleSummary = {
   entries: [
     {
       id: "1",
+      date: "2026-05-08",
       mealType: "breakfast",
       foodName: "燕麦",
       amountValue: 50,
@@ -22,6 +31,7 @@ export const sampleSummary = {
     },
     {
       id: "2",
+      date: "2026-05-08",
       mealType: "breakfast",
       foodName: "纯牛奶",
       amountValue: 250,
@@ -31,6 +41,7 @@ export const sampleSummary = {
     },
     {
       id: "3",
+      date: "2026-05-08",
       mealType: "lunch",
       foodName: "鸡胸肉",
       amountValue: 200,
@@ -40,6 +51,7 @@ export const sampleSummary = {
     },
     {
       id: "4",
+      date: "2026-05-08",
       mealType: "lunch",
       foodName: "米饭",
       amountValue: 180,
@@ -68,7 +80,7 @@ export const sampleHistory = [
   }
 ];
 
-export const sampleHistorySeries = [
+export const sampleHistorySeries: HistoryPoint[] = [
   { date: "2026-05-02", consumedKcal: 1760, targetIntakeKcal: 1810, actualDeficitKcal: 550, entryCount: 5 },
   { date: "2026-05-03", consumedKcal: 1680, targetIntakeKcal: 1810, actualDeficitKcal: 640, entryCount: 4 },
   { date: "2026-05-04", consumedKcal: 1920, targetIntakeKcal: 1810, actualDeficitKcal: 380, entryCount: 6 },
@@ -78,19 +90,19 @@ export const sampleHistorySeries = [
   { date: "2026-05-08", consumedKcal: 1060, targetIntakeKcal: 1810, actualDeficitKcal: 1250, entryCount: 4 }
 ];
 
-export const sampleFrequentFoods = [
+export const sampleFrequentFoods: FrequentFoodItem[] = [
   { foodName: "乌冬面", amountValue: 300, amountUnit: "g", caloriesKcal: 360, sourceType: "ai", lastUsedDate: "2026-05-08", useCount: 3 },
   { foodName: "燕麦", amountValue: 50, amountUnit: "g", caloriesKcal: 194, sourceType: "database", lastUsedDate: "2026-05-07", useCount: 6 },
   { foodName: "纯牛奶", amountValue: 250, amountUnit: "ml", caloriesKcal: 135, sourceType: "database", lastUsedDate: "2026-05-07", useCount: 5 },
   { foodName: "鸡胸肉", amountValue: 200, amountUnit: "g", caloriesKcal: 330, sourceType: "ai", lastUsedDate: "2026-05-06", useCount: 4 }
 ];
 
-export const sampleHistorySearch = [
+export const sampleHistorySearch: HistorySearchItem[] = [
   { id: "s1", date: "2026-05-08", mealType: "snack", foodName: "乌冬面", amountValue: 300, amountUnit: "g", caloriesKcal: 360, sourceType: "ai" },
   { id: "s2", date: "2026-05-05", mealType: "lunch", foodName: "乌冬面", amountValue: 280, amountUnit: "g", caloriesKcal: 340, sourceType: "manual" }
 ];
 
-export const sampleWeightTrend = [
+export const sampleWeightTrend: WeightTrendPoint[] = [
   { date: "2026-05-01", weightKg: 60.8 },
   { date: "2026-05-02", weightKg: 60.6 },
   { date: "2026-05-03", weightKg: 60.5 },
@@ -101,7 +113,7 @@ export const sampleWeightTrend = [
   { date: "2026-05-08", weightKg: 59.9 }
 ];
 
-export const sampleRecentWeightLogs = [
+export const sampleRecentWeightLogs: WeightLogRecord[] = [
   { id: "w1", date: "2026-05-08", weightKg: 59.9 },
   { id: "w2", date: "2026-05-07", weightKg: 60.0 },
   { id: "w3", date: "2026-05-06", weightKg: 60.1 },

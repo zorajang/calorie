@@ -5,6 +5,8 @@ import { SettingsForm } from "@/components/forms/settings-form";
 import { getLatestProfile, getRecentWeightLogs } from "@/lib/repository";
 import { sampleRecentWeightLogs } from "@/lib/sample-data";
 
+export const dynamic = "force-dynamic";
+
 export default async function SettingsPage() {
   const profile = await getLatestProfile();
   const recentWeightLogs = await getRecentWeightLogs(6);
